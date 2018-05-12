@@ -1,0 +1,36 @@
+{
+  "name": "race",
+  "plural": "races",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "raceNum": {
+      "type": "number",
+      "default": 3
+    },
+    "description": {
+      "type": "string"
+    },
+    "roster": {
+      "type": "string"
+    },
+    "lineup": {
+      "type": "json"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "team": {
+      "type": "belongsTo",
+      "model": "team",
+      "foreignKey": "teamId"
+    },
+    "event": {
+      "type": "belongsTo",
+      "model": "event",
+      "foreignKey": "eventId"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

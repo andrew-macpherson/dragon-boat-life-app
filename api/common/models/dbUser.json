@@ -1,0 +1,55 @@
+{
+  "name": "dbUser",
+  "base": "User",
+  "idInjection": true,
+  "properties": {
+    "accountType": {
+      "type": "number",
+      "default": 3
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "teams": {
+      "type": "hasMany",
+      "model": "team",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "accessType": "READ",
+      "permission": "ALLOW"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "accessType": "*",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "uploadProfileImage"
+    }
+  ],
+  "methods": []
+}

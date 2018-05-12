@@ -1,0 +1,61 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "dragonBoatRoster"
+  },
+  "AccessToken": {
+    "dataSource": "dragonBoatRoster",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "dragonBoatRoster",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "dragonBoatRoster",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "dragonBoatRoster",
+    "public": false
+  },
+  "dbUser": {
+    "dataSource": "dragonBoatRoster",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": false
+    }
+  },
+  "team":{
+    "dataSource": "dragonBoatRoster",
+    "public": true
+  },
+  "teamMember":{
+    "dataSource": "dragonBoatRoster",
+    "public": true
+  },
+  "event":{
+    "dataSource": "dragonBoatRoster",
+    "public": true
+  },
+  "race":{
+    "dataSource": "dragonBoatRoster",
+    "public": true
+  }
+}

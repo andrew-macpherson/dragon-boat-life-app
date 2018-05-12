@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "dragonBoatRoster": {
+    "host": "localhost",
+    "port": 8889,
+    "database": "dragonBoatRoster",
+    "password": "root",
+    "name": "dragonBoatRoster",
+    "user": "root",
+    "connector": "mysql"
+  }
+}

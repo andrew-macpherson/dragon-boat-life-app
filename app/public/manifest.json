@@ -1,0 +1,9 @@
+{
+  "short_name": "Hotel Spex",
+  "name": "Hotel Spex",
+  "icons": [],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

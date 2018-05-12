@@ -1,0 +1,29 @@
+{
+  "name": "event",
+  "plural": "events",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "eventName": {
+      "type": "string"
+    },
+    "minFemale": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "eventTeam": {
+      "type": "belongsTo",
+      "model": "team",
+      "foreignKey": "teamId"
+    },
+    "races": {
+      "type": "hasMany",
+      "model": "race",
+      "foreignKey": "eventId"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

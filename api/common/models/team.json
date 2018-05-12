@@ -1,0 +1,35 @@
+{
+  "name": "team",
+  "plural": "teams",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "userId": {
+      "type": "number",
+      "default": 3
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "teamUser": {
+      "type": "belongsTo",
+      "model": "dbUser",
+      "foreignKey": "userId"
+    },
+    "teamMembers": {
+      "type": "hasMany",
+      "model": "teamMember",
+      "foreignKey": "teamId"
+    },
+    "events": {
+      "type": "hasMany",
+      "model": "event",
+      "foreignKey": "teamId"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

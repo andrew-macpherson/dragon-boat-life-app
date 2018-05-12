@@ -1,0 +1,51 @@
+{
+  "name": "teamMember",
+  "plural": "teamMembers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "teamId": {
+      "type": "number",
+      "default": 0
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "string"
+    },
+    "preferredPaddleSide": {
+      "type": "string",
+      "default":"No Preference"
+    },
+    "preferredSection": {
+      "type": "string",
+      "default":"any"
+    },
+    "canSitSeatOne": {
+      "type": "number",
+      "default":"any"
+    },
+    "canStear": {
+      "type": "number",
+      "default":"any"
+    },
+    "gender": {
+      "type": "string",
+      "default":"Male"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "team": {
+      "type": "belongsTo",
+      "model": "dbUser",
+      "foreignKey": "teamId"
+    }
+  },
+  "acls": [],
+  "methods": []
+}
