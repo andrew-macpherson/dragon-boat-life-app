@@ -49,6 +49,5 @@ npm-debug.log
 
 uploads/*
 
-
 api/server/datasources.production.json
 api/server/datasources.development.json
