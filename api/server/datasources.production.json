@@ -6,10 +6,10 @@
   "dragonBoatRoster": {
     "host": "localhost",
     "port": 8889,
-    "database": "dragonBoatRoster",
-    "password": "root",
+    "database": "dbl",
+    "password": "DS@3L212!@!dsA",
     "name": "dragonBoatRoster",
-    "user": "root",
+    "user": "dbluser",
     "connector": "mysql"
   }
 }

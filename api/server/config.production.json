@@ -2,7 +2,7 @@
   "restApiRoot": "/api",
   "host": "0.0.0.0",
   "port": 3001,
-  "url": "http://localhost:3001/",
+  "url": "http://app.dragonboatlife.com:3001/",
   "cookieSecret": "246bace2-38cb-4138-85d9-0ae8160b07c8",
   "logoutSessionsOnSensitiveChanges":true,
   "remoting": {
