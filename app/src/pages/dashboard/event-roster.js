@@ -22,7 +22,12 @@ class EventRoster extends React.Component{
 	    this.state = {
 	      activeTab: false,
 	      leftWeight: 0,
-	      rightWeight: 0
+	      rightWeight: 0,
+	      frontWeight:0,
+	      backWeight:0,
+	      paceWeight: 0,
+	      engineWeight: 0,
+	      rocketWeight: 0
 	    };
 	}
 
@@ -121,6 +126,14 @@ class EventRoster extends React.Component{
 		var leftWeight = 0;
 		var rightWeight = 0;
 
+		var frontWeight = 0;
+		var backWeight = 0;
+
+		var paceWeight = 0;
+		var engineWeight = 0;
+		var rocketWeight = 0;
+
+
 		if(this.props.races.races[raceIndex] !== undefined){
 			var membersLeft = this.props.races.races[raceIndex].lineup.left;
 			var membersRight = this.props.races.races[raceIndex].lineup.right;
@@ -129,23 +142,130 @@ class EventRoster extends React.Component{
 
 			//Check if paddler is in members left and right
 			if(membersLeft !== undefined){
+
+				//Left Weight
 				for(var i=0; i < membersLeft.length; i++){
 					if(membersLeft[i] != null && membersLeft[i].weight !== undefined){
 						leftWeight = Number(leftWeight) + Number(membersLeft[i].weight);
 					}
 				}
+
+
+				// Front Half Weight
+				for(var i=0; i < 5; i++){
+					if(membersLeft[i] != null && membersLeft[i].weight !== undefined){
+						frontWeight = Number(frontWeight) + Number(membersLeft[i].weight);
+					}
+				}
+
+				// Back Half Weight
+				for(var i=0; i < 10; i++){
+					if(i >=5){
+						if(membersLeft[i] != null && membersLeft[i].weight !== undefined){
+							backWeight = Number(backWeight) + Number(membersLeft[i].weight);
+						}
+					}
+				}
+
+
+				// Pace Weight
+				for(var i=0; i < 3; i++){
+					if(membersLeft[i] != null && membersLeft[i].weight !== undefined){
+						paceWeight = Number(paceWeight) + Number(membersLeft[i].weight);
+					}
+				}
+
+				// Engine Weight
+				for(var i=0; i < 10; i++){
+					if(i < 7 && i > 2){
+						if(membersLeft[i] != null && membersLeft[i].weight !== undefined){
+							engineWeight = Number(engineWeight) + Number(membersLeft[i].weight);
+						}
+					}
+				}
+
+				// Rocket Weight
+				for(var i=0; i < 10; i++){
+					if(i >=7){
+						if(membersLeft[i] != null && membersLeft[i].weight !== undefined){
+							rocketWeight = Number(rocketWeight) + Number(membersLeft[i].weight);
+						}
+					}
+				}
+
 			}
 			if(membersRight !== undefined){
+				//Right Weight
 				for(var i=0; i < membersRight.length; i++){
 					if(membersRight[i] != null && membersRight[i].weight !== undefined){
 						rightWeight = Number(rightWeight) + Number(membersRight[i].weight);
 					}
 				}
+
+				// Front Half Weight
+				for(var i=0; i < 5; i++){
+					if(membersRight[i] != null && membersRight[i].weight !== undefined){
+						frontWeight = Number(frontWeight) + Number(membersRight[i].weight);
+					}
+				}
+
+				// Back Weight
+				for(var i=0; i < 10; i++){
+					if(i >=5){
+						if(membersRight[i] != null && membersRight[i].weight !== undefined){
+							backWeight = Number(backWeight) + Number(membersRight[i].weight);
+						}
+					}
+				}
+
+				// Pace Weight Right
+				for(var i=0; i < 5; i++){
+					if(membersRight[i] != null && membersRight[i].weight !== undefined){
+						paceWeight = Number(paceWeight) + Number(membersRight[i].weight);
+					}
+				}
+
+				// Engine Weight Right
+				for(var i=0; i < 10; i++){
+					if(i < 7 && i > 2){
+						if(membersRight[i] != null && membersRight[i].weight !== undefined){
+							engineWeight = Number(engineWeight) + Number(membersRight[i].weight);
+						}
+					}
+				}
+
+				// Rocket Weight Right
+				for(var i=0; i < 10; i++){
+					if(i >=7){
+						if(membersRight[i] != null && membersRight[i].weight !== undefined){
+							backWeight = Number(backWeight) + Number(membersRight[i].weight);
+						}
+					}
+				}
 			}
+
+			if(membersDrummer !== undefined){
+				if(membersDrummer[0] != null && membersDrummer[0].weight !== undefined){
+					frontWeight = Number(frontWeight) + Number(membersDrummer[0].weight);
+				}
+			}
+
+			if(membersSteer !== undefined){
+				if(membersSteer[0] != null && membersSteer[0].weight !== undefined){
+					backWeight = Number(backWeight) + Number(membersSteer[0].weight);
+				}
+			}
+
+
 
 			this.setState({
 				leftWeight: leftWeight,
-				rightWeight:rightWeight
+				rightWeight:rightWeight,
+				frontWeight:frontWeight,
+				backWeight:backWeight,
+				paceWeight:paceWeight,
+				engineWeight:engineWeight,
+				rocketWeight:rocketWeight
 			})
 		}
 	}
@@ -281,9 +401,17 @@ class EventRoster extends React.Component{
 
 											<div className="row">
 												<div className="col col-12">
+
 													<p>
 													Left Weight: {this.state.leftWeight} <br />
-													Right Weight: {this.state.rightWeight}
+													Right Weight: {this.state.rightWeight} <br /><br />
+													
+													Front Half Weight: {this.state.frontWeight} <br />
+													Back Half Weight: {this.state.backWeight} <br /><br />
+
+													Pace Weight: {this.state.paceWeight} <br />
+													Engine Weight: {this.state.engineWeight} <br />
+													Rocket Weight: {this.state.rocketWeight} <br />
 													</p>
 												</div>
 											</div>	
