@@ -61,8 +61,8 @@ class TeamEvents extends React.Component{
 													<td>{event.eventName}</td>
 													<td>
 														<div className="btn-group">
-															<NavLink className="btn btn-sm btn-primary" to={"/dashboard/team/3/event/"+event.id+"/edit"}>Edit</NavLink>
-															<NavLink className="btn btn-sm btn-primary" to={"/dashboard/team/3/event/"+event.id+"/roster"}>Roster</NavLink>
+															<NavLink className="btn btn-sm btn-primary" to={"/dashboard/team/"+this.state.teamId+"/event/"+event.id+"/edit"}>Edit</NavLink>
+															<NavLink className="btn btn-sm btn-primary" to={"/dashboard/team/"+this.state.teamId+"/event/"+event.id+"/roster"}>Roster</NavLink>
 															<button className="btn btn-sm btn-danger" type="button" onClick={(evt) => this.handleDeleteEvent(event.id)}>Delete</button>
 														</div>
 													</td>
