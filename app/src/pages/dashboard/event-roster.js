@@ -402,17 +402,32 @@ class EventRoster extends React.Component{
 											<div className="row">
 												<div className="col col-12">
 
-													<p>
-													Left Weight: {this.state.leftWeight} <br />
-													Right Weight: {this.state.rightWeight} <br /><br />
+													<table className="table table-sm table-bordered text-center">
+														<tr>
+															<td colSpan="3" className={(this.state.frontWeight != this.state.backWeight)?"table-warning":"table-success"}>Front Half: {this.state.frontWeight}</td>
+														</tr>
+														<tr>
+															<td className={(this.state.leftWeight != this.state.rightWeight)?"table-warning":"table-success"}>Left: {this.state.leftWeight}</td>
+															<td>
+																<table className="table table-sm">
+																	<tr>
+																		<td>Pace: {this.state.paceWeight}</td>
+																	</tr>
+																	<tr>
+																		<td>Engine: {this.state.engineWeight}</td>
+																	</tr>
+																	<tr>
+																		<td>Rockets: {this.state.rocketWeight}</td>
+																	</tr>
+																</table>
+															</td>
+															<td className={(this.state.rightWeight != this.state.leftWeight)?"table-warning":"table-success"}>Right: {this.state.rightWeight}</td>
+														</tr>
+														<tr>
+															<td colSpan="3" className={(this.state.backWeight != this.state.frontWeight)?"table-warning":"table-success"}>Back Half: {this.state.backWeight}</td>
+														</tr>
+													</table>
 													
-													Front Half Weight: {this.state.frontWeight} <br />
-													Back Half Weight: {this.state.backWeight} <br /><br />
-
-													Pace Weight: {this.state.paceWeight} <br />
-													Engine Weight: {this.state.engineWeight} <br />
-													Rocket Weight: {this.state.rocketWeight} <br />
-													</p>
 												</div>
 											</div>	
 

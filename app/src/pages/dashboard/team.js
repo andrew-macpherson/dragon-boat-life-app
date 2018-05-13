@@ -90,7 +90,7 @@ class Team extends React.Component{
 					<div className="col col-4">
 						<EditTeam team={this.props.team} />
 
-						<AddEditTeamMemberForm teamMember={this.props.teamMember} />
+						<AddEditTeamMemberForm teamMember={this.props.teamMember} btnTxt="Add Team Member" />
 					</div>
 				</div>
 			</div>

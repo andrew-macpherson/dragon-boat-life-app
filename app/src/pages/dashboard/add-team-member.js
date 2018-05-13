@@ -38,7 +38,7 @@ class AddEditTeamMember extends React.Component{
 			<div div className="container">
 				<h3>Update Team Member</h3>
 				{this.props.teamMember.id ?
-				<AddEditTeamMemberForm teamMember={this.props.teamMember} />
+				<AddEditTeamMemberForm teamMember={this.props.teamMember} btnTxt="Edit Team Member" />
 				:
 				'' }
 			</div>

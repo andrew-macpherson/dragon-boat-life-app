@@ -43,7 +43,7 @@ export function post(data,teamId) {
         teamMember.post(data,teamId,(success,err,user) => {
             if(success === true){
                 //Show success message.
-                toastr.success('Success', 'Team Added');
+                toastr.success('Success', 'Team Member Added');
 
                 //Remove loading animation
                 dispatch(spinnerEnd());

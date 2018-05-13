@@ -13,18 +13,10 @@ class AddEditTeamMemberForm extends React.Component{
 
 		this.handelOnSubmit = this.handelOnSubmit.bind(this);
 
-		this.state = {
-			btnTxt: 'Add Team Member'
-		}
 	}
 
 	componentDidMount(){
-		console.log('dsadsa',this.props.teamMember);
-		if(this.props.teamMember.id){
-			this.setState({btnTxt:'Edit Team Member'});
-		}else{
-			this.setState({btnTxt:'Add Team Member'});
-		}
+		
 
 	}
 
@@ -39,10 +31,11 @@ class AddEditTeamMemberForm extends React.Component{
     }
 
 	render(){
+
 		return (
 			<div className="card">
 				<div className="card-header">
-					Add Team Member
+					{this.props.btnTxt}
 				</div>
 				<div className="card-body">
 					<form method="post" onSubmit={this.handelOnSubmit}>
@@ -83,7 +76,7 @@ class AddEditTeamMemberForm extends React.Component{
 							</select>
 						</div>
 						<div className="form-group mt-4">
-							<button type="submit" className="btn btn-sm btn-primary">{this.state.btnTxt}</button>
+							<button type="submit" className="btn btn-sm btn-primary">{this.props.btnTxt}</button>
 						</div>
 					</form>
 				</div>
@@ -98,7 +91,8 @@ function mapStateToProps(state,ownProps){
 	return {
 		team: state.team,
 		teamMember: ownProps.teamMember,
-		currentUser: state.currentUser
+		currentUser: state.currentUser,
+		btnTxt:ownProps.btnTxt
 	}
 }
 

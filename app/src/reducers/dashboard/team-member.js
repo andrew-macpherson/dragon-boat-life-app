@@ -28,9 +28,14 @@ export const teamMember = (state = initState,action) => {
 
 		case "RESET_TEAM_MEMBER_STATE":
 			let resetTeamState = {
-				...initState
+				firstName: '',
+				lastName: '',
+				weight:'',
+				gender:'Male',
+				preferredPaddleSide: 'No Preference',
+				preferredSection: 'Any'
 			}
-			console.log(resetTeamState);
+			console.log('resetTeamState',resetTeamState);
 			return resetTeamState;
 
 
