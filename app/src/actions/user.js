@@ -56,6 +56,9 @@ export function register(data) {
 				//Remove loading animation
 				dispatch(spinnerEnd());
 
+                //Log the user in.
+                dispatch(login(data));
+
 			}else{
                 toastr.error('Error', 'There was an error: '+err);
 		        dispatch(spinnerEnd());

@@ -14,6 +14,7 @@ import LoginForm from 'components/login-form.js';
 import {changeInput} from 'actions/common';
 
 
+
 class Index extends React.Component{
 
 	render(){
