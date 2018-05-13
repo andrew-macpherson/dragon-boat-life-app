@@ -51,3 +51,4 @@ uploads/*
 
 api/server/datasources.production.json
 api/server/datasources.development.json
+api/constants.js

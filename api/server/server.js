@@ -1,5 +1,7 @@
 'use strict';
 
+var constants = require('../constants');
+
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 var bodyParser = require('body-parser');
@@ -52,7 +54,7 @@ app.post('/email', function (req, res) {
         service: 'gmail',
         auth: {
             user: 'dragonboatlifecanada@gmail.com',
-            pass: 'dSw@rER@23'
+            pass: constants.GMAIL_PASS
         }
     });
     var mailOptions = {
