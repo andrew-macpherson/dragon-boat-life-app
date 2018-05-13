@@ -22,8 +22,8 @@ class Index extends React.Component{
 				<div id="homePageBgImage"></div>
 
 				<div className="row">
-					<div className="col-12">
-						<h1>App Home</h1>
+					<div className="col-12 text-center">
+						<img className="homePageLogo" src="/images/dragon-boat-life-logo-white.png" />
 					</div>
 				</div>
 

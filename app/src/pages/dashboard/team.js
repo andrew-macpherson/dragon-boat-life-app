@@ -68,7 +68,7 @@ class Team extends React.Component{
 													<td>{item.firstName} {item.lastName}</td>
 													<td>{item.weight}</td>
 													<td>{item.preferredPaddleSide}</td>
-													<td>{item.preferredPosition}</td>
+													<td>{item.preferredSection}</td>
 													<td>
 														<div className="btn-group">
 															<Link to={"/dashboard/team/"+this.props.team.id+"/edit-member/"+item.id} className="btn btn-sm btn-primary">Edit</Link>
