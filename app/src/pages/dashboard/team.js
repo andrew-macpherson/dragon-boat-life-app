@@ -40,6 +40,16 @@ class Team extends React.Component{
 		return (
 			<div div className="container">
 
+				<ol className="breadcrumb">
+					<li className="breadcrumb-item">
+						<NavLink to={"/dashboard/"}>Home</NavLink>
+					</li>
+					<li className="breadcrumb-item">
+						<NavLink to={"/dashboard/teams/"}>Teams</NavLink>
+					</li>
+					<li className="breadcrumb-item active">{this.props.team.name}</li>
+				</ol>
+
 				<div className="row">
 					<div className="col col-12 col-md-4 mobileMarginBotton">
 						<EditTeam team={this.props.team} />

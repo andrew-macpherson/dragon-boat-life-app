@@ -38,6 +38,19 @@ class TeamEvents extends React.Component{
 		return (
 			<div div className="container">
 
+				<ol className="breadcrumb">
+					<li className="breadcrumb-item">
+						<NavLink to={"/dashboard/"}>Home</NavLink>
+					</li>
+					<li className="breadcrumb-item">
+						<NavLink to={"/dashboard/teams/"}>Teams</NavLink>
+					</li>
+					<li className="breadcrumb-item">
+						<NavLink to={"/dashboard/team/"+this.props.team.id+"/view"}>{this.props.team.name}</NavLink>
+					</li>
+					<li className="breadcrumb-item active">Events</li>
+				</ol>
+
 				<div className="row">
 					<div className="col col-12 col-md-4 mobileMarginBotton">
 						<CreateEventForm team={this.props.team} />

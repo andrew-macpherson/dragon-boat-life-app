@@ -30,6 +30,12 @@ class Teams extends React.Component{
 	render(){
 		return (
 			<div div className="container">
+				<ol className="breadcrumb">
+					<li className="breadcrumb-item">
+						<NavLink to={"/dashboard/"}>Home</NavLink>
+					</li>
+					<li className="breadcrumb-item active">Teams</li>
+				</ol>
 
 				<div className="row">
 					<div className="col col-12 col-md-4 mobileMarginBotton">

@@ -8,6 +8,7 @@ import {getTeamMembers,getTeam} from 'actions/team-member.js';
 import {getUserTeam} from 'actions/team.js';
 import {getEventRaces,deleteEventRace,updateRaceObject} from 'actions/race.js';
 import {post,patch,updateRace} from 'actions/race.js';
+import {getTeamEvent} from 'actions/event.js';
 
 class EventRoster extends React.Component{
 
@@ -38,6 +39,7 @@ class EventRoster extends React.Component{
 		this.props.getUserTeam(this.props.currentUser.id,teamId);
 		this.props.getTeamMembers(teamId);
 		this.props.getEventRaces(teamId,eventId);
+		this.props.getTeamEvent(teamId,eventId);
 
 		this.calculateWeight(0);
 	}
@@ -331,7 +333,23 @@ class EventRoster extends React.Component{
 
 		return (
 			<div className="container">
-				<h1>{this.props.team.name}</h1>
+				<ol className="breadcrumb">
+					<li className="breadcrumb-item">
+						<NavLink to={"/dashboard/"}>Home</NavLink>
+					</li>
+					<li className="breadcrumb-item">
+						<NavLink to={"/dashboard/teams/"}>Teams</NavLink>
+					</li>
+					<li className="breadcrumb-item">
+						<NavLink to={"/dashboard/team/"+this.props.team.id+"/view"}>{this.props.team.name}</NavLink>
+					</li>
+					<li className="breadcrumb-item">
+						<NavLink to={"/dashboard/team/"+this.props.team.id+"/events"}>Events</NavLink>
+					</li>
+					<li className="breadcrumb-item active">Roster</li>
+				</ol>
+
+				<h1>{this.props.event.eventName}</h1>
 
 				<div className="row">
 					<div className="col col-12">
@@ -616,7 +634,8 @@ function mapStateToProps(state,ownProps){
 		teamMembers: state.teamMembers,
 		currentUser: state.currentUser,
 		team: state.team,
-		races: state.races
+		races: state.races,
+		event: state.event
 	}
 }
 
@@ -626,6 +645,7 @@ const mapDispatchToProps = dispatch => {
 		getTeamMembers: (teamId) => dispatch(getTeamMembers(teamId)),
 		getUserTeam: (userId,teamId) => dispatch(getUserTeam(userId,teamId)),
 		getEventRaces: (teamId,eventId) => dispatch(getEventRaces(teamId,eventId)),
+		getTeamEvent: (teamId,eventId) => dispatch(getTeamEvent(teamId,eventId)),
 		post:(eventId,teamId,raceData) => dispatch(post(eventId,teamId,raceData)),
 		deleteEventRace:(eventId,raceId,teamId) => dispatch(deleteEventRace(eventId,raceId,teamId)),
 

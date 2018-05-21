@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {NavLink} from 'react-router-dom';
 
 class Home extends React.Component{
 
@@ -15,7 +16,7 @@ class Home extends React.Component{
 		var that = this;
 		//Get recent blog posts. 
 		// Register User
-		fetch('http://dragonboatlife.com/wp-json/wp/v2/posts', {
+		fetch('http://dragonboatlife.com/wp-json/wp/v2/posts?categories=17', {
 			method: 'get'
 		}).then(function(response) {
 	        if (!response.ok) {
@@ -44,6 +45,12 @@ class Home extends React.Component{
 	render(){
 		return (
 			<div className="container">
+
+				<ol className="breadcrumb">
+					<li className="breadcrumb-item active">
+						<NavLink to={"/dashboard/"}>Home</NavLink>
+					</li>
+				</ol>
 				
 				<div className="row">
 					<div className="col col-12 col-md-8">
