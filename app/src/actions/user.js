@@ -72,7 +72,6 @@ export function patch(id,data) {
     return (dispatch) => {
 
         dispatch(spinnerBegin());
-
         user.patch(data.id,data,(success,err,user) => {
             if(success === true){
                 //Show success message.

@@ -31,6 +31,7 @@ class AddEditTeamMemberForm extends React.Component{
     }
 
 	render(){
+		var disabled = (this.props.teamMember.id ? true : false);
 
 		return (
 			<div className="card">
@@ -41,23 +42,23 @@ class AddEditTeamMemberForm extends React.Component{
 					<form method="post" onSubmit={this.handelOnSubmit}>
 						<div className="form-group">
 							<label>First Name</label>
-							<input name="teamName" className="form-control" type="text" value={this.props.teamMember.user.firstName} onChange={(event) => this.props.updateUserValue(event.target.value,'firstName')} />
+							<input name="teamName" disabled={disabled} required className="form-control" type="text" value={this.props.teamMember.user.firstName} onChange={(event) => this.props.updateUserValue(event.target.value,'firstName')} />
 						</div>
 						<div className="form-group">
 							<label>Last Name</label>
-							<input name="teamName" className="form-control" type="text" value={this.props.teamMember.user.lastName} onChange={(event) => this.props.updateUserValue(event.target.value,'lastName')} />
+							<input name="teamName" disabled={disabled} className="form-control" type="text" value={this.props.teamMember.user.lastName} onChange={(event) => this.props.updateUserValue(event.target.value,'lastName')} />
 						</div>
 						<div className="form-group">
 							<label>Email Address</label>
-							<input name="teamName" className="form-control" type="text" value={this.props.teamMember.user.email} onChange={(event) => this.props.updateUserValue(event.target.value,'email')} />
+							<input name="teamName" required disabled={disabled} className="form-control" type="text" value={this.props.teamMember.user.email} onChange={(event) => this.props.updateUserValue(event.target.value,'email')} />
 						</div>
 						<div className="form-group">
 							<label>Phone</label>
-							<input name="teamName" className="form-control" type="text" value={this.props.teamMember.user.phoneNumber} onChange={(event) => this.props.updateUserValue(event.target.value,'phoneNumber')} />
+							<input name="teamName" disabled={disabled} className="form-control" type="text" value={this.props.teamMember.user.phoneNumber} onChange={(event) => this.props.updateUserValue(event.target.value,'phoneNumber')} />
 						</div>
 						<div className="form-group">
 							<label>Weight</label>
-							<input name="teamName" className="form-control" type="text" value={this.props.teamMember.user.weight} onChange={(event) => this.props.updateUserValue(event.target.value,'weight')} />
+							<input name="teamName" required className="form-control" type="text" value={this.props.teamMember.user.weight} onChange={(event) => this.props.updateUserValue(event.target.value,'weight')} />
 						</div>
 						<div className="form-group">
 							<label>Gender</label>

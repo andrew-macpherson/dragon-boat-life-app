@@ -34,6 +34,22 @@ class EditEvent extends React.Component{
 	render(){
 		return (
 			<div div className="container">
+				<ol className="breadcrumb">
+					<li className="breadcrumb-item">
+						<NavLink to={"/dashboard/"}>Home</NavLink>
+					</li>
+					<li className="breadcrumb-item">
+						<NavLink to={"/dashboard/teams/"}>Teams</NavLink>
+					</li>
+					<li className="breadcrumb-item">
+						<NavLink to={"/dashboard/team/"+this.props.team.id+"/view"}>{this.props.team.name}</NavLink>
+					</li>
+					<li className="breadcrumb-item">
+						<NavLink to={"/dashboard/team/"+this.props.team.id+"/events"}>Events</NavLink>
+					</li>
+					<li className="breadcrumb-item active">Edit Event</li>
+				</ol>
+
 				<h1>Edit Event</h1>
 
 				<CreateEventForm team={this.props.team} eventId={this.state.eventId} />

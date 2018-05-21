@@ -8,7 +8,8 @@ const initState = {
 	firstName: '',
 	lastName: '',
 	phoneNumber: '',
-	
+	gender:'',
+	weight:''
 }
 
 
