@@ -106,6 +106,7 @@ export function post(data,teamId) {
                 }else{
                     var userData = {
                         email:data.user.email,
+                        username:data.user.email,
                         phoneNumber:data.user.phoneNumber,
                         firstName:data.user.firstName,
                         lastName:data.user.lastName,
@@ -157,6 +158,7 @@ export function patch(teamMemberId,data) {
                 // If user exists use the ID else add a new user first. 
                 var userData = {
                     email:data.user.email,
+                    username:data.user.email,
                     phoneNumber:data.user.phoneNumber,
                     firstName:data.user.firstName,
                     lastName:data.user.lastName,
