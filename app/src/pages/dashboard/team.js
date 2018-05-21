@@ -41,7 +41,13 @@ class Team extends React.Component{
 			<div div className="container">
 
 				<div className="row">
-					<div className="col col-8">
+					<div className="col col-12 col-md-4 mobileMarginBotton">
+						<EditTeam team={this.props.team} />
+
+						<AddEditTeamMemberForm teamMember={this.props.teamMember} btnTxt="Add Team Member" />
+					</div>
+					
+					<div className="col col-12 col-md-8">
 
 						<div className="card">
 							<div className="card-header">
@@ -87,11 +93,7 @@ class Team extends React.Component{
 						</div>
 
 					</div>
-					<div className="col col-4">
-						<EditTeam team={this.props.team} />
-
-						<AddEditTeamMemberForm teamMember={this.props.teamMember} btnTxt="Add Team Member" />
-					</div>
+					
 				</div>
 			</div>
 		);

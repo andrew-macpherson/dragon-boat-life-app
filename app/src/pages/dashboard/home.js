@@ -46,7 +46,7 @@ class Home extends React.Component{
 			<div className="container">
 				
 				<div className="row">
-					<div className="col col-8">
+					<div className="col col-12 col-md-8">
 						<h3>Recent News</h3>
 
 						{(this.state.posts.length === 0) ?
@@ -72,8 +72,35 @@ class Home extends React.Component{
 						},this)}
 					</div>
 
-					<div className="col col-4">
-						<h3>Products</h3>
+					<div className="col col-12 col-md-4">
+						<h3>T-Shirts & Tanks</h3>
+
+						<div className="row ">
+							<div className="col col-12 col-md-12">
+								<p>
+									<a href="https://dragonboatlife.threadless.com/designs/id-rather-dragon-boating/womens/racerback-tank?color=white" target="_blank" rel="noopener">
+										<img class="size-medium wp-image-230 alignnone" src="http://dragonboatlife.com/wp-content/uploads/2018/05/Id-Rather-be-dragon-boating-t-shirt-300x300.png" alt="" width="300" height="300" />
+									</a>
+								</p>
+							</div>
+						</div>
+						<div className="row ">
+							<div className="col col-12 col-md-12">
+								<p>
+									<a href="https://dragonboatlife.threadless.com/designs/boat-hair-dont-care/womens/triblend-t-shirt" target="_blank" rel="noopener"><img class="alignnone size-medium wp-image-231" src="http://dragonboatlife.com/wp-content/uploads/2018/05/boat-hair-dont-care-t-shirt-300x300.png" alt="" width="300" height="300"  /></a>
+								</p>
+							</div>
+						</div>
+						<div className="row ">
+							<div className="col col-12 col-md-12">
+								<p>
+									<a href="https://dragonboatlife.threadless.com/designs/dragon-boat-life/mens/tank?color=black" target="_blank" rel="noopener">
+										<img class="alignnone size-medium wp-image-232" src="http://dragonboatlife.com/wp-content/uploads/2018/05/dragon-boat-life-tank-top-298x300.png" alt="" width="298" height="300" />
+									</a>
+								</p>
+							</div>
+						</div>
+
 					</div>
 				</div>
 

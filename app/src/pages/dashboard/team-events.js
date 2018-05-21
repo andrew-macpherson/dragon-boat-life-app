@@ -39,7 +39,10 @@ class TeamEvents extends React.Component{
 			<div div className="container">
 
 				<div className="row">
-					<div className="col col-8">
+					<div className="col col-12 col-md-4 mobileMarginBotton">
+						<CreateEventForm team={this.props.team} />
+					</div>
+					<div className="col col-12 col-md-8">
 
 						<div className="card">
 								<div className="card-header">
@@ -77,9 +80,7 @@ class TeamEvents extends React.Component{
 						</div>
 
 					</div>
-					<div className="col col-4">
-						<CreateEventForm team={this.props.team} />
-					</div>
+					
 				</div>
 			</div>
 		);

@@ -362,7 +362,7 @@ class EventRoster extends React.Component{
 						return (
 							<div className={(this.state.activeTab === index) ? "tab-pane fade show active" : "tab-pane fade"}>
 								<div className="row">
-									<div className="col col-4">
+									<div className="col col-12 col-md-4 mobileMarginBotton">
 										<h4>Remaining Team Members</h4>
 
 										<ul className="list-group">
@@ -389,7 +389,7 @@ class EventRoster extends React.Component{
 										</ul>
 
 									</div>
-									<div className="col col-8">
+									<div className="col col-12 col-md-8">
 										<div>
 											<div className="row">
 												<div className="col col-12">
@@ -438,6 +438,9 @@ class EventRoster extends React.Component{
 															<select className="form-control" onChange={(event) => this.handleOnPaddlerChange('drummer',0,index,event.target.value)}>
 																<option value="">Select Drummer</option>
 																{this.props.teamMembers.teamMembers.map(function(item,paddlerIndex){
+
+																	var inBoatAlready = this.allReadyInBoat(index,item,paddlerIndex);
+
 																	var selectedIndex = null;
 																	if(
 																		this.props.races.races !== undefined 
@@ -452,10 +455,14 @@ class EventRoster extends React.Component{
 																			}
 																		}
 																	}
+																	if(!inBoatAlready || selectedIndex === paddlerIndex){
+																		return (
+																			<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.firstName} {item.lastName}</option>
+																		);
 
-																	return (
-																		<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.firstName} {item.lastName}</option>
-																	);
+																	}else{
+																		return false;
+																	}
 																},this)}
 															</select>
 														</li>
@@ -472,7 +479,7 @@ class EventRoster extends React.Component{
 																	<select className="form-control" onChange={(event) => this.handleOnPaddlerChange('left',i,index,event.target.value)}>
 																		<option value="">Select Paddler</option>
 																		{this.props.teamMembers.teamMembers.map(function(item,paddlerIndex){
-
+																			var inBoatAlready = this.allReadyInBoat(index,item,paddlerIndex);
 																			var selectedIndex = null;
 																			
 																			if(
@@ -491,10 +498,13 @@ class EventRoster extends React.Component{
 																					}
 																				}
 																			}
-
-																			return (
-																				<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.firstName} {item.lastName}</option>
-																			);
+																			if(!inBoatAlready || selectedIndex === paddlerIndex){
+																				return (
+																					<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.firstName} {item.lastName}</option>
+																				);
+																			}else{
+																				return false;
+																			}
 																		},this)}
 																	</select>
 																</li>
@@ -511,6 +521,7 @@ class EventRoster extends React.Component{
 																	<select className="form-control" onChange={(event) => this.handleOnPaddlerChange('right',i,index,event.target.value)}>
 																		<option value="">Select Paddler</option>
 																		{this.props.teamMembers.teamMembers.map(function(item,paddlerIndex){
+																			var inBoatAlready = this.allReadyInBoat(index,item,paddlerIndex);
 
 																			var selectedIndex = null;
 																			
@@ -530,10 +541,13 @@ class EventRoster extends React.Component{
 																					}
 																				}
 																			}
-
-																			return (
-																				<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.firstName} {item.lastName}</option>
-																			);
+																			if(!inBoatAlready || selectedIndex === paddlerIndex){
+																				return (
+																					<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.firstName} {item.lastName}</option>
+																				);
+																			}else{
+																				return false;
+																			}
 																		},this)}
 																	</select>
 																</li>
@@ -550,6 +564,7 @@ class EventRoster extends React.Component{
 															<select className="form-control" onChange={(event) => this.handleOnPaddlerChange('steer',0,index,event.target.value)}>
 																<option>Select Steer</option>
 																{this.props.teamMembers.teamMembers.map(function(item,paddlerIndex){
+																	var inBoatAlready = this.allReadyInBoat(index,item,paddlerIndex);
 
 																	var selectedIndex = null;
 																	if(
@@ -565,10 +580,13 @@ class EventRoster extends React.Component{
 																			}
 																		}
 																	}
-
-																	return (
-																		<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.firstName} {item.lastName}</option>
-																	);
+																	if(!inBoatAlready || selectedIndex === paddlerIndex){
+																		return (
+																			<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.firstName} {item.lastName}</option>
+																		);
+																	}else{
+																		return false;
+																	}
 																},this)}
 															</select>
 														</li>

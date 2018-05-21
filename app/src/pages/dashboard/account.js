@@ -22,10 +22,10 @@ class Account extends React.Component{
 			<div className="container">
 
 				<div className="row">
-					<div className="col col-8">
+					<div className="col col-12 col-md-8">
 						<AccountForm />
 					</div>
-					<div className="col col-4">
+					<div className="col col-12 col-md-4">
 						<PasswordForm />
 						
 					</div>
