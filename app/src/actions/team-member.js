@@ -101,7 +101,7 @@ export function post(data,teamId) {
                     
                     data.userId = dbUser[0].id;
                     dispatch(addTeamMember(data,teamId));
-                    
+                    dispatch(spinnerEnd());
 
                 }else{
                     var userData = {
@@ -155,6 +155,8 @@ export function patch(teamMemberId,data) {
         }
         user.get(userFilter,(success,err,dbUser) => {
             if(success === true){
+
+                
                 // If user exists use the ID else add a new user first. 
                 var userData = {
                     email:data.user.email,
