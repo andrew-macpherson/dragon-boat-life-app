@@ -32,15 +32,10 @@ export function setTeamMembers(teamMembers){
     }
 }
 
-export function post(data,teamId) {
+export function addTeamMember(data,teamId){
     return (dispatch) => {
-
         dispatch(spinnerBegin());
-
-        console.log('teamId is');
-        console.log(teamId);
-
-        teamMember.post(data,teamId,(success,err,user) => {
+        teamMember.post(data,teamId,(success,err,teamMember) => {
             if(success === true){
                 //Show success message.
                 toastr.success('Success', 'Team Member Added');
@@ -60,13 +55,11 @@ export function post(data,teamId) {
                 dispatch(spinnerEnd());
             }
         });
-
-    };
+    }
 }
 
-export function patch(teamMemberId,data) {
+export function updateTeamMember(teamMemberId,data){
     return (dispatch) => {
-
         dispatch(spinnerBegin());
 
         teamMember.patch(teamMemberId,data,(success,err,user) => {
@@ -82,7 +75,130 @@ export function patch(teamMemberId,data) {
                 dispatch(spinnerEnd());
             }
         });
+    }
+}
 
+export function post(data,teamId) {
+    return (dispatch) => {
+
+        dispatch(spinnerBegin());
+
+        // Check if dbUser already exists
+        // If so user their ID to add the new paddler
+        // If not create a new DB User
+
+        var userFilter = {
+            where: {
+                email: data.user.email
+            }
+        }
+        user.get(userFilter,(success,err,dbUser) => {
+
+            if(success === true){
+                console.log('user is',dbUser);
+                // If user exists use the ID else add a new user first. 
+                if(dbUser.length > 0){
+                    
+                    data.userId = dbUser[0].id;
+                    dispatch(addTeamMember(data,teamId));
+                    
+
+                }else{
+                    var userData = {
+                        email:data.user.email,
+                        phoneNumber:data.user.phoneNumber,
+                        firstName:data.user.firstName,
+                        lastName:data.user.lastName,
+                        gender:data.user.gender,
+                        weight:data.user.weight,
+                        password: 'randomPass',
+                        accountType:4
+                    }
+                    user.post(userData,(success,err,dbUser) => {
+                        if(success === true){
+                            data.userId = dbUser.id;
+                            dispatch(addTeamMember(data,teamId));
+                            dispatch(spinnerEnd());
+                            
+                        }else{
+                            toastr.error('Error', 'There was an error: '+err);
+                            dispatch(spinnerEnd());
+                        }
+                    });
+                }
+
+            }else{
+                toastr.error('Error', 'There was an error: '+err);
+                dispatch(spinnerEnd());
+            }
+        });
+
+        
+
+    };
+}
+
+export function patch(teamMemberId,data) {
+    return (dispatch) => {
+
+        dispatch(spinnerBegin());
+
+        // Check if dbUser already exists
+        // If so user their ID to add the new paddler
+        // If not create a new DB User
+
+        var userFilter = {
+            where: {
+                email: data.user.email
+            }
+        }
+        user.get(userFilter,(success,err,dbUser) => {
+            if(success === true){
+                // If user exists use the ID else add a new user first. 
+                var userData = {
+                    email:data.user.email,
+                    phoneNumber:data.user.phoneNumber,
+                    firstName:data.user.firstName,
+                    lastName:data.user.lastName,
+                    gender:data.user.gender,
+                    weight:data.user.weight,
+                }
+
+                if(dbUser.length > 0){
+                    user.patch(dbUser[0].id,userData,(success,err,dbUser) => {
+                        if(success === true){
+                            data.userId = dbUser.id;
+                            dispatch(updateTeamMember(teamMemberId,data));
+                            dispatch(spinnerEnd());
+                        }else{
+                            toastr.error('Error', 'There was an error: '+err);
+                            dispatch(spinnerEnd());
+                        }
+                    });
+                    dispatch(updateTeamMember(teamMemberId,data));
+                }else{
+                    user.password = 'randomPass';
+                    user.accountType=4;
+
+                    user.post(userData,(success,err,dbUser) => {
+                        if(success === true){
+                            data.userId = dbUser.id;
+                            dispatch(updateTeamMember(teamMemberId,data));
+                            dispatch(spinnerEnd());
+                        }else{
+                            toastr.error('Error', 'There was an error: '+err);
+                            dispatch(spinnerEnd());
+                        }
+                    });
+                }
+
+            }else{
+                toastr.error('Error', 'There was an error: '+err);
+                dispatch(spinnerEnd());
+            }
+        });
+        
+        
     };
 }
 
@@ -95,7 +211,8 @@ export function getTeamMembers(teamId){
         var filters = {
             where: {
                 teamId:teamId
-            }
+            },
+            include: 'user'
         }
 
         teamMember.get(filters,(success,err,teamMembers) => {
@@ -121,11 +238,14 @@ export function getTeamMember(teamId,memberId){
         dispatch(spinnerBegin());
 
         var filters = {
-            where: {teamId:teamId}
+            where: {teamId:teamId},
+            include: 'user'
         }
 
         teamMember.getSingle(memberId,filters,(success,err,teamMember) => {
+
             if(success === true){
+                console.log('teamMember: fdsfds',teamMember);
                 //Clear loading
                 dispatch(spinnerEnd());
                 //reset login form

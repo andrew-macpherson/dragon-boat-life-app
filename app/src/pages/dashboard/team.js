@@ -81,8 +81,10 @@ class Team extends React.Component{
 										{this.props.teamMembers.teamMembers.map(function(item,index){
 											return (
 												<tr>
-													<td>{item.firstName} {item.lastName}</td>
-													<td>{item.weight}</td>
+													<td>
+														{item.user.firstName} {item.user.lastName}
+													</td>
+													<td>{item.user.weight}</td>
 													<td>{item.preferredPaddleSide}</td>
 													<td>{item.preferredSection}</td>
 													<td>

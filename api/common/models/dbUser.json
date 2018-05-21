@@ -15,6 +15,13 @@
     },
     "phoneNumber": {
       "type": "string"
+    },
+    "weight": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "string",
+      "default":"Male"
     }
   },
   "validations": [],
@@ -22,6 +29,11 @@
     "teams": {
       "type": "hasMany",
       "model": "team",
+      "foreignKey": "userId"
+    },
+    "teamMembers": {
+      "type": "hasMany",
+      "model": "teamMembers",
       "foreignKey": "userId"
     }
   },
@@ -41,7 +53,7 @@
     {
       "accessType": "WRITE",
       "principalType": "ROLE",
-      "principalId": "$owner",
+      "principalId": "$everyone",
       "permission": "ALLOW"
     },
     {

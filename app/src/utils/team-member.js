@@ -79,9 +79,7 @@ var teamMember = {
 			callback(true,false,response);
 
 		}).catch(function(error) {
-	        error.json().then(json => {
-		        callback(false,json.error.message);
-		    });
+	        callback(false,error);
 	    });
 
 		return;

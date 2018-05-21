@@ -41,19 +41,27 @@ class AddEditTeamMemberForm extends React.Component{
 					<form method="post" onSubmit={this.handelOnSubmit}>
 						<div className="form-group">
 							<label>First Name</label>
-							<input name="teamName" className="form-control" type="text" value={this.props.teamMember.firstName} onChange={(event) => this.props.updateValue(event.target.value,'firstName')} />
+							<input name="teamName" className="form-control" type="text" value={this.props.teamMember.user.firstName} onChange={(event) => this.props.updateUserValue(event.target.value,'firstName')} />
 						</div>
 						<div className="form-group">
 							<label>Last Name</label>
-							<input name="teamName" className="form-control" type="text" value={this.props.teamMember.lastName} onChange={(event) => this.props.updateValue(event.target.value,'lastName')} />
+							<input name="teamName" className="form-control" type="text" value={this.props.teamMember.user.lastName} onChange={(event) => this.props.updateUserValue(event.target.value,'lastName')} />
+						</div>
+						<div className="form-group">
+							<label>Email Address</label>
+							<input name="teamName" className="form-control" type="text" value={this.props.teamMember.user.email} onChange={(event) => this.props.updateUserValue(event.target.value,'email')} />
+						</div>
+						<div className="form-group">
+							<label>Phone</label>
+							<input name="teamName" className="form-control" type="text" value={this.props.teamMember.user.phoneNumber} onChange={(event) => this.props.updateUserValue(event.target.value,'phoneNumber')} />
 						</div>
 						<div className="form-group">
 							<label>Weight</label>
-							<input name="teamName" className="form-control" type="text" value={this.props.teamMember.weight} onChange={(event) => this.props.updateValue(event.target.value,'weight')} />
+							<input name="teamName" className="form-control" type="text" value={this.props.teamMember.user.weight} onChange={(event) => this.props.updateUserValue(event.target.value,'weight')} />
 						</div>
 						<div className="form-group">
 							<label>Gender</label>
-							<select className="form-control" value={this.props.teamMember.gender} onChange={(event) => this.props.updateValue(event.target.value,'gender')}>
+							<select className="form-control" value={this.props.teamMember.user.gender} onChange={(event) => this.props.updateUserValue(event.target.value,'gender')}>
 								<option>Male</option>
 								<option>Female</option>
 							</select>
@@ -100,6 +108,7 @@ function mapStateToProps(state,ownProps){
 const mapDispatchToProps = dispatch => {
 	return {
 		updateValue: (newVal,change) => dispatch(changeInput('CHANGE_TEAM_MEMBER_INPUT',newVal,change)),
+		updateUserValue: (newVal,change) => dispatch(changeInput('CHANGE_TEAM_MEMBER_USER_INPUT',newVal,change)),
 		post: (data,teamId) => dispatch(post(data,teamId)),
 		patch:(teamMemberId,teamMember) => dispatch(patch(teamMemberId,teamMember)),
 		getTeamMember: (teamId,memberId) =>dispatch(getTeamMember(teamId,memberId)),

@@ -147,24 +147,24 @@ class EventRoster extends React.Component{
 
 				//Left Weight
 				for(var i=0; i < membersLeft.length; i++){
-					if(membersLeft[i] != null && membersLeft[i].weight !== undefined){
-						leftWeight = Number(leftWeight) + Number(membersLeft[i].weight);
+					if(membersLeft[i] != null && membersLeft[i].user !== undefined){
+						leftWeight = Number(leftWeight) + Number(membersLeft[i].user.weight);
 					}
 				}
 
 
 				// Front Half Weight
 				for(var i=0; i < 5; i++){
-					if(membersLeft[i] != null && membersLeft[i].weight !== undefined){
-						frontWeight = Number(frontWeight) + Number(membersLeft[i].weight);
+					if(membersLeft[i] != null && membersLeft[i].user !== undefined){
+						frontWeight = Number(frontWeight) + Number(membersLeft[i].user.weight);
 					}
 				}
 
 				// Back Half Weight
 				for(var i=0; i < 10; i++){
 					if(i >=5){
-						if(membersLeft[i] != null && membersLeft[i].weight !== undefined){
-							backWeight = Number(backWeight) + Number(membersLeft[i].weight);
+						if(membersLeft[i] != null && membersLeft[i].user !== undefined){
+							backWeight = Number(backWeight) + Number(membersLeft[i].user.weight);
 						}
 					}
 				}
@@ -172,16 +172,16 @@ class EventRoster extends React.Component{
 
 				// Pace Weight
 				for(var i=0; i < 3; i++){
-					if(membersLeft[i] != null && membersLeft[i].weight !== undefined){
-						paceWeight = Number(paceWeight) + Number(membersLeft[i].weight);
+					if(membersLeft[i] != null && membersLeft[i].user !== undefined){
+						paceWeight = Number(paceWeight) + Number(membersLeft[i].user.weight);
 					}
 				}
 
 				// Engine Weight
 				for(var i=0; i < 10; i++){
 					if(i < 7 && i > 2){
-						if(membersLeft[i] != null && membersLeft[i].weight !== undefined){
-							engineWeight = Number(engineWeight) + Number(membersLeft[i].weight);
+						if(membersLeft[i] != null && membersLeft[i].user !== undefined){
+							engineWeight = Number(engineWeight) + Number(membersLeft[i].user.weight);
 						}
 					}
 				}
@@ -189,8 +189,8 @@ class EventRoster extends React.Component{
 				// Rocket Weight
 				for(var i=0; i < 10; i++){
 					if(i >=7){
-						if(membersLeft[i] != null && membersLeft[i].weight !== undefined){
-							rocketWeight = Number(rocketWeight) + Number(membersLeft[i].weight);
+						if(membersLeft[i] != null && membersLeft[i].user !== undefined){
+							rocketWeight = Number(rocketWeight) + Number(membersLeft[i].user.weight);
 						}
 					}
 				}
@@ -199,39 +199,39 @@ class EventRoster extends React.Component{
 			if(membersRight !== undefined){
 				//Right Weight
 				for(var i=0; i < membersRight.length; i++){
-					if(membersRight[i] != null && membersRight[i].weight !== undefined){
-						rightWeight = Number(rightWeight) + Number(membersRight[i].weight);
+					if(membersRight[i] != null && membersRight[i].user !== undefined){
+						rightWeight = Number(rightWeight) + Number(membersRight[i].user.weight);
 					}
 				}
 
 				// Front Half Weight
 				for(var i=0; i < 5; i++){
-					if(membersRight[i] != null && membersRight[i].weight !== undefined){
-						frontWeight = Number(frontWeight) + Number(membersRight[i].weight);
+					if(membersRight[i] != null && membersRight[i].user !== undefined){
+						frontWeight = Number(frontWeight) + Number(membersRight[i].user.weight);
 					}
 				}
 
 				// Back Weight
 				for(var i=0; i < 10; i++){
 					if(i >=5){
-						if(membersRight[i] != null && membersRight[i].weight !== undefined){
-							backWeight = Number(backWeight) + Number(membersRight[i].weight);
+						if(membersRight[i] != null && membersRight[i].user !== undefined){
+							backWeight = Number(backWeight) + Number(membersRight[i].user.weight);
 						}
 					}
 				}
 
 				// Pace Weight Right
 				for(var i=0; i < 5; i++){
-					if(membersRight[i] != null && membersRight[i].weight !== undefined){
-						paceWeight = Number(paceWeight) + Number(membersRight[i].weight);
+					if(membersRight[i] != null && membersRight[i].user !== undefined){
+						paceWeight = Number(paceWeight) + Number(membersRight[i].user.weight);
 					}
 				}
 
 				// Engine Weight Right
 				for(var i=0; i < 10; i++){
 					if(i < 7 && i > 2){
-						if(membersRight[i] != null && membersRight[i].weight !== undefined){
-							engineWeight = Number(engineWeight) + Number(membersRight[i].weight);
+						if(membersRight[i] != null && membersRight[i].user !== undefined){
+							engineWeight = Number(engineWeight) + Number(membersRight[i].user.weight);
 						}
 					}
 				}
@@ -239,22 +239,22 @@ class EventRoster extends React.Component{
 				// Rocket Weight Right
 				for(var i=0; i < 10; i++){
 					if(i >=7){
-						if(membersRight[i] != null && membersRight[i].weight !== undefined){
-							backWeight = Number(backWeight) + Number(membersRight[i].weight);
+						if(membersRight[i] != null && membersRight[i].user !== undefined){
+							backWeight = Number(backWeight) + Number(membersRight[i].user.weight);
 						}
 					}
 				}
 			}
 
 			if(membersDrummer !== undefined){
-				if(membersDrummer[0] != null && membersDrummer[0].weight !== undefined){
-					frontWeight = Number(frontWeight) + Number(membersDrummer[0].weight);
+				if(membersDrummer[0] != null && membersDrummer[0].user !== undefined){
+					frontWeight = Number(frontWeight) + Number(membersDrummer[0].user.weight);
 				}
 			}
 
 			if(membersSteer !== undefined){
-				if(membersSteer[0] != null && membersSteer[0].weight !== undefined){
-					backWeight = Number(backWeight) + Number(membersSteer[0].weight);
+				if(membersSteer[0] != null && membersSteer[0].user !== undefined){
+					backWeight = Number(backWeight) + Number(membersSteer[0].user.weight);
 				}
 			}
 
@@ -391,9 +391,13 @@ class EventRoster extends React.Component{
 													return (
 														<li key={paddlerIndex} className="list-group-item">
 															{paddler.gender === 'Male' ? <span className="fa fa-mars"></span> : <span className="fa fa-venus"></span> }
-															<span> {paddler.firstName} {paddler.lastName}</span>
+															<span> {paddler.user.firstName} {paddler.user.lastName} - {paddler.user.weight}lbs</span>
 
 															<span className="pull-right">
+																{paddler.preferredSection == 'Pace' || paddler.preferredSection == 'Any' || paddler.preferredSection == null ? <span className="fa fa-clock-o"></span> : ""}
+																{paddler.preferredSection == 'Engine' || paddler.preferredSection == 'Any' || paddler.preferredSection == null ? <span className="fa fa-automobile"></span> : ""}
+																{paddler.preferredSection == 'Rockets' || paddler.preferredSection == 'Any' || paddler.preferredSection == null ? <span className="fa fa-rocket"></span> : ""}
+
 																{paddler.preferredPaddleSide == 'Left' || paddler.preferredPaddleSide == 'No Preference' ? <span className="fa fa-arrow-left"></span> : ""}
 																{paddler.preferredPaddleSide == 'Right' || paddler.preferredPaddleSide == 'No Preference' ? <span className="fa fa-arrow-right"></span> : ""}
 															</span>
@@ -475,7 +479,7 @@ class EventRoster extends React.Component{
 																	}
 																	if(!inBoatAlready || selectedIndex === paddlerIndex){
 																		return (
-																			<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.firstName} {item.lastName}</option>
+																			<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.user.firstName} {item.user.lastName}</option>
 																		);
 
 																	}else{
@@ -518,7 +522,7 @@ class EventRoster extends React.Component{
 																			}
 																			if(!inBoatAlready || selectedIndex === paddlerIndex){
 																				return (
-																					<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.firstName} {item.lastName}</option>
+																					<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.user.firstName} {item.user.lastName}</option>
 																				);
 																			}else{
 																				return false;
@@ -561,7 +565,7 @@ class EventRoster extends React.Component{
 																			}
 																			if(!inBoatAlready || selectedIndex === paddlerIndex){
 																				return (
-																					<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.firstName} {item.lastName}</option>
+																					<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.user.firstName} {item.user.lastName}</option>
 																				);
 																			}else{
 																				return false;
@@ -600,7 +604,7 @@ class EventRoster extends React.Component{
 																	}
 																	if(!inBoatAlready || selectedIndex === paddlerIndex){
 																		return (
-																			<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.firstName} {item.lastName}</option>
+																			<option selected={(selectedIndex === paddlerIndex)} value={paddlerIndex}>{item.user.firstName} {item.user.lastName}</option>
 																		);
 																	}else{
 																		return false;

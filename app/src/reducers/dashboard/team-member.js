@@ -1,12 +1,16 @@
 
 
 const initState = {
-	firstName: '',
-	lastName: '',
-	weight:'',
-	gender:'Male',
 	preferredPaddleSide: 'No Preference',
-	preferredSection: 'Any'
+	preferredSection: 'Any',
+	user: {
+		firstName:'',
+		lastName:'',
+		email:'',
+		phoneNumber:'',
+		gender:'Male',
+		weight:''
+	}
 }
 
 
@@ -26,6 +30,18 @@ export const teamMember = (state = initState,action) => {
 			console.log('newInputState: ',newInputState);
 			return newInputState;
 
+		case "CHANGE_TEAM_MEMBER_USER_INPUT":
+			const newUserInputState = {
+				...state,
+				user: {
+					...state.user,
+					[action.item_to_change]: action.new_value
+				}
+				
+			}
+			console.log('newInputState: ',newUserInputState);
+			return newUserInputState;
+
 		case "RESET_TEAM_MEMBER_STATE":
 			let resetTeamState = {
 				firstName: '',
@@ -33,7 +49,13 @@ export const teamMember = (state = initState,action) => {
 				weight:'',
 				gender:'Male',
 				preferredPaddleSide: 'No Preference',
-				preferredSection: 'Any'
+				preferredSection: 'Any',
+				user: {
+					firstName:'',
+					lastName:'',
+					email:'',
+					phoneNumber:'',
+				}
 			}
 			console.log('resetTeamState',resetTeamState);
 			return resetTeamState;

@@ -41,6 +41,33 @@ var user = {
 		return;
 	},
 
+	get(filters,callback){
+		var access_token =  Cookies.get('access_token');
+
+		// Get User
+		fetch(constants.API_URL+'/dbUsers?filter='+JSON.stringify(filters)+'&access_token='+access_token, {
+			method: 'get'
+		}).then(function(response) {
+	        if (!response.ok) {
+	            throw response;
+	        }
+	        return response;
+	    }).then(function(response){
+			//Success.
+			response.json().then(json => {
+		    	 // After Fetch 
+		        callback(true,false,json);
+		    });
+
+		}).catch(function(error) {
+	        //error.json().then(json => {
+		        callback(false,error);
+		    //});
+	    });
+
+		return;
+	},
+
 	post(userData,callback){
 		// Register User
 		fetch(constants.API_URL+'/dbUsers', {
@@ -57,7 +84,10 @@ var user = {
 	        return response;
 	    }).then(function(response){
 			//Success.
-			callback(true,false,response);
+			response.json().then(json => {
+		    	 // After Fetch 
+		        callback(true,false,json);
+		    });
 
 		}).catch(function(error) {
 	        error.json().then(json => {

@@ -8,14 +8,9 @@
       "type": "number",
       "default": 0
     },
-    "firstName": {
-      "type": "string"
-    },
-    "lastName": {
-      "type": "string"
-    },
-    "weight": {
-      "type": "string"
+    "userId": {
+      "type": "number",
+      "default": 0
     },
     "preferredPaddleSide": {
       "type": "string",
@@ -32,18 +27,19 @@
     "canStear": {
       "type": "number",
       "default":"any"
-    },
-    "gender": {
-      "type": "string",
-      "default":"Male"
     }
   },
   "validations": [],
   "relations": {
     "team": {
       "type": "belongsTo",
-      "model": "dbUser",
+      "model": "team",
       "foreignKey": "teamId"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "dbUser",
+      "foreignKey": "userId"
     }
   },
   "acls": [],
