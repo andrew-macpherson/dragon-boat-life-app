@@ -1,0 +1,3 @@
+rootProject.name = 'Dragon-Boat-Life'
+
+include ':app'
