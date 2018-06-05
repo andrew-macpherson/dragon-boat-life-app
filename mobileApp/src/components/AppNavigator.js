@@ -18,12 +18,14 @@ import Dashboard from './../pages/dashboard/Dashboard.js';
 import LogOut from './../pages/LogOut.js';
 import Account from './../pages/dashboard/Account.js';
 import Teams from './../pages/dashboard/Teams.js';
+import AddTeam from './../pages/dashboard/AddTeam.js';
 
 const AppStack = StackNavigator({ 
   Dashboard: {screen:Dashboard},
   LogOut: {screen:LogOut},
   Account: {screen:Account}, 
   Teams: {screen:Teams}, 
+  AddTeam : {screen:AddTeam}
 });
 
 const AuthStack = StackNavigator({

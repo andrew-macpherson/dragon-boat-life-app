@@ -28,13 +28,15 @@ export function setTeams(teams){
 export function post(data) {
     return (dispatch) => {
 
-        team.post(data,(success,err,user) => {
+        api.post('teams',data,(success,err,user) => {
             if(success === true){
                 //Re Fetch Teams
                 dispatch(getUserTeams(data.userId));
 
                 //Reset team Form
                 dispatch(resetTeam());
+
+                alert('Team Added');
 
             }else{
 

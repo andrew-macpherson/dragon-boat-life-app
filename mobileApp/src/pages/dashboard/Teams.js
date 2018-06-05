@@ -12,7 +12,7 @@ import { Button, List, ListItem } from 'react-native-elements';
 
 
 //Import Actions
-import {changeInput} from 'Dragon-Boat-Life/src/actions/common.js';
+import {changeInput,navigate} from 'Dragon-Boat-Life/src/actions/common.js';
 import {getUserTeams,deleteUserTeam} from 'Dragon-Boat-Life/src/actions/team.js';
 
 class Teams extends Component {
@@ -30,6 +30,8 @@ class Teams extends Component {
       <ScrollView>
         <View>
           <Text>Teams</Text>
+          <Button title='Add Team' onPress={() => this.props.navigate('AddTeam')} />
+
           <List containerStyle={{marginBottom: 20}}>
             {this.props.teams.teams.map(function(obj, i){
               return (
@@ -56,7 +58,8 @@ function mapStateToProps(state,ownProps){
 
 const mapDispatchToProps = dispatch => {
   return {
-    getUserTeams: (userId) => dispatch(getUserTeams(userId))
+    getUserTeams: (userId) => dispatch(getUserTeams(userId)),
+    navigate: (route) => dispatch(navigate(route))
   }
 }
 
