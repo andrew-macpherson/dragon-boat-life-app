@@ -6,6 +6,9 @@ import {login} from './login.js';
 import {currentUser} from './currentUser.js';
 import {teams} from './teams.js';
 import {team} from './team.js';
+import {teamMembers} from './team-members.js';
+
+import {events} from './events.js';
 
 
 export default combineReducers({
@@ -14,5 +17,7 @@ export default combineReducers({
 	registration,
 	login,
 	teams,
-	team
+	team,
+	teamMembers,
+	events
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {createSwitchNavigator, createDrawerNavigator, createStackNavigator, StackNavigator, addNavigationHelpers } from 'react-navigation';
+import {createSwitchNavigator, StackNavigator, TabNavigator, addNavigationHelpers } from 'react-navigation';
 // import new redux helpers
 import {
   createReduxBoundAddListener,
@@ -18,13 +18,21 @@ import Dashboard from './../pages/dashboard/Dashboard.js';
 import LogOut from './../pages/LogOut.js';
 import Account from './../pages/dashboard/Account.js';
 import Teams from './../pages/dashboard/Teams.js';
+import Team from './../pages/dashboard/Team.js';
+import TeamEvents from './../pages/dashboard/TeamEvents.js';
 import AddTeam from './../pages/dashboard/AddTeam.js';
+
+const TeamStack = TabNavigator({
+  Team: {screen:Team}, 
+  TeamEvents: {screen:TeamEvents}, 
+});
 
 const AppStack = StackNavigator({ 
   Dashboard: {screen:Dashboard},
   LogOut: {screen:LogOut},
   Account: {screen:Account}, 
   Teams: {screen:Teams}, 
+  Team: {screen:TeamStack}, 
   AddTeam : {screen:AddTeam}
 });
 

@@ -38,6 +38,7 @@ class Teams extends Component {
                 <ListItem
                   key={i}
                   title={obj.name}
+                  onPress={() => this.props.navigate('Team',{teamId:obj.id})}
                 />
               )
             },this)}
@@ -59,7 +60,7 @@ function mapStateToProps(state,ownProps){
 const mapDispatchToProps = dispatch => {
   return {
     getUserTeams: (userId) => dispatch(getUserTeams(userId)),
-    navigate: (route) => dispatch(navigate(route))
+    navigate: (route,params) => dispatch(navigate(route,params))
   }
 }
 

@@ -6,9 +6,10 @@ export function changeInput(type,newVal,change){
     };
 }
 
-export function navigate(route){
+export function navigate(route,params){
 	return {
 		type: 'Navigation/NAVIGATE',
-		routeName:route
+		routeName:route,
+		params:params
 	}
 }

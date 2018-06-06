@@ -25,6 +25,27 @@ export function setTeams(teams){
     }
 }
 
+// Team Members
+export function resetTeamMember() {
+    return {
+        type: 'RESET_TEAM_MEMBER_STATE'
+    };
+}
+
+export function setTeamMember(teamMember){
+    return {
+        type: 'SET_TEAM_MEMBER_STATE',
+        teamMember: teamMember
+    };
+}
+
+export function setTeamMembers(teamMembers){
+    return {
+        type: 'SET_TEAM_MEMBERS_STATE',
+        teamMembers: teamMembers
+    }
+}
+
 export function post(data) {
     return (dispatch) => {
 
@@ -46,6 +67,39 @@ export function post(data) {
     };
 }
 
+export function getTeam(teamId){
+    return (dispatch) => {
+        api.get('teams/'+teamId,{},(success,err,team) => {
+            if(success === true){
+                //Set Team State
+                dispatch(setTeam(team));
+
+            }else{
+
+            }
+        });
+    }
+}
+
+export function getTeamMembers(teamId){
+    return (dispatch) => {
+        var filters = {
+            include: 'user'
+        }
+        api.get('teams/'+teamId+'/teamMembers',filters,(success,err,team) => {
+            if(success === true){
+                //Set Team State
+                dispatch(setTeamMembers(team));
+
+            }else{
+
+            }
+        });
+    }
+}
+
+//////// NOT USED ////////
+
 export function patch(teamId,data) {
     return (dispatch) => {
 
@@ -66,7 +120,7 @@ export function getUserTeams(userId){
 
         var endPoint = 'dbUsers/'+userId+'/teams';
         
-        api.get(endPoint,(success,err,teams) => {
+        api.get(endPoint,{},(success,err,teams) => {
             if(success === true){
                 
                 dispatch(setTeams(teams));

@@ -8,6 +8,9 @@ import configureStore from './src/store/configureStore.js';
 import Nav from './src/components/AppNavigator.js';
 
 
+//Disable yellow warnings
+console.disableYellowBox = true;
+
 let store = configureStore();
 
 const DragonBoatLife = () => (

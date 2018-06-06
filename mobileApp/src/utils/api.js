@@ -4,16 +4,16 @@ import { AsyncStorage } from 'react-native';
 
 var api = {
 
-	get(endpoint,callback){
+	get(endpoint,filters,callback){
 		const access_token = AsyncStorage.getItem('access_token');
 		AsyncStorage.getItem('access_token', (err, result) => {
 			if(result){
-				var url = constants.API_URL+'/'+endpoint+'?access_token='+result;
+				var url = constants.API_URL+'/'+endpoint+'?filter='+JSON.stringify(filters)+'&access_token='+result;
 			}else{
-				var url = constants.API_URL+'/'+endpoint;
+				var url = constants.API_URL+'/'+endpoint+'?filter='+JSON.stringify(filters);
 			}
 
-			fetch(constants.API_URL+'/'+endpoint+'?access_token='+access_token, {
+			fetch(url, {
 				method: 'GET'
 			}).then(function(response) {
 		        if (!response.ok) {
