@@ -23,8 +23,8 @@ import TeamEvents from './../pages/dashboard/TeamEvents.js';
 import AddTeam from './../pages/dashboard/AddTeam.js';
 
 const TeamStack = TabNavigator({
-  Team: {screen:Team}, 
-  TeamEvents: {screen:TeamEvents}, 
+  Team: {screen:Team},
+  TeamEvents: {screen:TeamEvents},
 });
 
 const AppStack = StackNavigator({ 
