@@ -1,0 +1,10 @@
+version: '3.5'
+
+services:
+  dragon-boat-life-webapp:
+    container_name: dragon-boat-life-webapp
+    build:
+      context: .
+      dockerfile: Dockerfile-prod
+    ports:
+      - '80:80'
